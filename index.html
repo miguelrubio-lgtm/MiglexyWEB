@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site de Jogos</title>
+    <style>
+        /* --- ESTILIZAÇÃO DO FUNDO E FONTE --- */
+        body {
+            background-color: #f0f4f8; 
+            /* Se for usar imagem de fundo no GitHub, mude o nome do arquivo abaixo: */
+            /* background-image: url('fundo.jpg'); */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 320px 1fr 300px;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* --- TOPO (NOME DO SITE) --- */
+        header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header h1 {
+            color: #ff4a5a; 
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* --- BARRA LATERAL (LISTA DE JOGOS) --- */
+        aside {
+            grid-column: 1;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+            overflow-y: auto; /* Permite rolar a lista se você adicionar muitos jogos */
+        }
+
+        aside h2 {
+            color: #ff4a5a;
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 2px solid #ff4a5a;
+            padding-bottom: 8px;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside li {
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        aside a {
+            text-decoration: none;
+            color: #222;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
+            transition: color 0.2s;
+        }
+
+        aside a:hover {
+            color: #ff4a5a;
+        }
+
+        aside span {
+            font-size: 0.85rem;
+            color: #666;
+            display: block;
+            line-height: 1.3;
+        }
+
+        /* --- CONTEÚDO CENTRAL (TEXTOS) --- */
+        main {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: flex-start;
+            padding: 10px;
+        }
+
+        .texto-box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            color: #ff4a5a;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* --- LATERAL DIREITA (GIF PERSONAGEM) --- */
+        .sidebar-right {
+            grid-column: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container-gif {
+            width: 100%;
+            max-width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container-gif img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* --- RODAPÉ (CAIXA DE SOM) --- */
+        footer {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .caixa-som-btn {
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .caixa-som-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .caixa-som-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="musica-fundo" src="musica.mp3" loop></audio>
+
+    <header>
+        <h1>Nome do Seu Site</h1>
+    </header>
+
+    <aside>
+        <h2>Lista de Jogos</h2>
+        <ul>
+            
+            <li>
+                <a href="https://fnafgame.io/" target="_blank">Five Nights at Freddy's</a>
+                <span>Jogo de sobrevivência e terror na pizzaria.</span>
+            </li>
+
+            <li>
+                <a href="https://quenq.com/#google_vignette" target="_blank">Quenq</a>
+                <span>Portal com vários mini-jogos casuais para navegador.</span>
+            </li>
+
+            <li>
+                <a href="https://neal.fun/" target="_blank">Neal.fun</a>
+                <span>Coleção de jogos interativos, curiosidades e experimentos legais.</span>
+            </li>
+
+            <li>
+                <a href="https://emulatorjs.com/" target="_blank">EmulatorJS</a>
+                <span>Emulador para rodar jogos clássicos de consoles antigos na web.</span>
+            </li>
+
+            <li>
+                <a href="https://totaljerkface.com/happy_wheels.tjf" target="_blank">Happy Wheels</a>
+                <span>O clássico jogo de corrida com obstáculos e física maluca.</span>
+            </li>
+
+            <li>
+                <a href="https://www.crazycattle.org/index.html" target="_blank">Crazy Cattle</a>
+                <span>Jogos e projetos indie em flash/HTML5.</span>
+            </li>
+
+            <li>
+                <a href="https://cookieclicker.eu/cookieclicker/" target="_blank">Cookie Clicker</a>
+                <span>O famoso jogo de clicar no biscoito e comprar melhorias.</span>
+            </li>
+
+            <li>
+                <a href="https://eaglercraftx.pages.dev/" target="_blank">Eaglercraft (Minecraft Web)</a>
+                <span>Versão do Minecraft que roda direto pelo navegador.</span>
+            </li>
+
+            </ul>
+    </aside>
+
+    <main>
+        <div class="texto-box">
+            Aqui vai o seu primeiro bloco de texto explicativo ou introdução do site.
+        </div>
+        <div class="texto-box">
+            Aqui fica o segundo bloco de texto, conforme desenhado no seu modelo.
+        </div>
+    </main>
+
+    <div class="sidebar-right">
+        <div class="container-gif">
+            <img id="gif-personagem" src="personagem.gif" alt="GIF Personagem">
+        </div>
+    </div>
+
+    <footer>
+        <div class="caixa-som-btn" onclick="controlarMusica()" title="Clique para ligar/desligar a música">
+            <img id="gif-caixa" src="caixadesom.gif" alt="Caixa de Som">
+        </div>
+    </footer>
+
+    <script>
+        const musica = document.getElementById('musica-fundo');
+        
+        function controlarMusica() {
+            if (musica.paused) {
+                musica.play();
+                console.log("Música ligada!");
+            } else {
+                musica.pause();
+                console.log("Música pausada!");
+            }
+        }
+    </script>
+
+</body>
+</html>
